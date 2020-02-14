@@ -16,7 +16,7 @@ export default {
         toolbar.addButton({
           title: themePrefix("composer_title"),
           id: "insertVideo",
-          group: "fontStyles",
+          group: "insertions",
           icon: "video",
           perform: e =>
             showModal("insert-video").setProperties({ toolbarEvent: e })
