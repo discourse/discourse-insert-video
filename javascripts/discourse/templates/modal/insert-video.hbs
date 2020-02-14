@@ -1,0 +1,31 @@
+{{#d-modal-body title=(theme-prefix "modal.title") class="insert-video"}}
+  <p>{{theme-i18n "modal.description"}}</p>
+  <div class="insert-video-inputs">
+    {{value-list
+      values=sources
+      inputDelimiter="|"
+      addKey=(theme-prefix "modal.add_video")
+    }}
+  </div>
+
+  <div class="insert-video-inputs">
+    {{value-list
+      values=tracks
+      inputDelimiter="|"
+      addKey=(theme-prefix "modal.add_track")
+    }}
+    <div class="desc">{{theme-i18n "modal.vtt_help"}}</div>
+  </div>
+
+  {{#if insertDisabled}}
+    <div class="video-insert-error">
+      {{validationMessage}}
+    </div>
+  {{/if}}
+
+{{/d-modal-body}}
+
+<div class="modal-footer">
+  {{d-button class="btn-primary" disabled=insertDisabled label=(theme-prefix "modal.insert") action=(action "insert")}}
+  {{d-button class="btn-danger" label=(theme-prefix "modal.cancel") action=(action "cancel")}}
+</div>

@@ -1,0 +1,6 @@
+default_track_label:
+  default: "English"
+default_track_langcode:
+  default: "en"
+only_available_to_staff:
+  default: false

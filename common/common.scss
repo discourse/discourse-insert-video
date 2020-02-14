@@ -1,0 +1,29 @@
+.insert-video-inputs {
+  margin-bottom: 2em;
+
+  .desc {
+    font-size: $font-down-1;
+    color: $primary-medium;
+    max-width: 350px;
+    padding-top: 0.5em;
+  }
+
+  + .insert-video-inputs {
+    border-top: 1px solid $primary-low;
+    padding-top: 2em;
+  }
+
+  .value-list {
+    max-width: 500px;
+  }
+}
+
+.modal-inner-container {
+  .insert-video-inputs .select-kit {
+    width: 450px;
+  }
+}
+
+.video-insert-error {
+  color: $danger;
+}
