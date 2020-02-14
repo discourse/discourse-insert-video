@@ -1,11 +1,11 @@
 en:
   modal:
     title: Insert Video
-    description: Insert HTML5 videos with multiple sources and VTT caption tracks.
     add_video: Add video source URL(s)
-    add_track: Add captions/subtitles (VTT)
-    vtt_help: "Comma-delimited entries in the format: url,label,langcode"
+    add_track: Subtitles (optional)
+    vtt_help: "Comma-delimited, in the format: url,label,langcode"
     insert: Insert
     cancel: Cancel
+    poster: Poster image URL (optional)
   source_not_video: "Error: One of the video URLs is not a valid video format."
   composer_title: Insert Video

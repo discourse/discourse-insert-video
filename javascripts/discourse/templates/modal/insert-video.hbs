@@ -1,11 +1,12 @@
 {{#d-modal-body title=(theme-prefix "modal.title") class="insert-video"}}
-  <p>{{theme-i18n "modal.description"}}</p>
   <div class="insert-video-inputs">
     {{value-list
       values=sources
       inputDelimiter="|"
       addKey=(theme-prefix "modal.add_video")
     }}
+
+    {{input name="poster-image" value=poster placeholder=(theme-i18n "modal.poster") disabled=insertDisabled}}
   </div>
 
   <div class="insert-video-inputs">
@@ -22,7 +23,6 @@
       {{validationMessage}}
     </div>
   {{/if}}
-
 {{/d-modal-body}}
 
 <div class="modal-footer">

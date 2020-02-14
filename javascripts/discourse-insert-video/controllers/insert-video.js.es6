@@ -52,6 +52,8 @@ export default Controller.extend(ModalFunctionality, {
       let sources = "",
         tracks = "";
 
+      const poster = this.poster ? `poster="${this.poster}"` : "";
+
       data.sources.forEach(src => {
         sources += `\n  <source src="${src}" type="video/${this.sourceType(
           src
@@ -69,7 +71,7 @@ export default Controller.extend(ModalFunctionality, {
           tracks += `\n  <track src="${url}" label="${label}" kind="subtitles" srclang="${langcode}" ${def}/>`;
         });
       }
-      let text = `<video crossorigin="anonymous" controls controlslist preload="metadata">${sources}${tracks}\n</video>`;
+      let text = `<video crossorigin="anonymous" controls controlslist preload="metadata" ${poster}>${sources}${tracks}\n</video>`;
       this.toolbarEvent.addText(text);
 
       this.send("closeModal");
