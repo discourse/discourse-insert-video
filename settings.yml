@@ -4,3 +4,5 @@ default_track_langcode:
   default: "en"
 only_available_to_staff:
   default: false
+disable_download:
+  default: false

@@ -60,6 +60,11 @@ export default Controller.extend(ModalFunctionality, {
         )}" />`;
       });
 
+      const controlslist =
+        settings && settings.disable_download
+          ? `controlslist="nodownload" `
+          : "";
+
       if (data.tracks) {
         data.tracks.forEach((t, i) => {
           const track = t.split(","),
@@ -71,7 +76,7 @@ export default Controller.extend(ModalFunctionality, {
           tracks += `\n  <track src="${url}" label="${label}" kind="subtitles" srclang="${langcode}" ${def}/>`;
         });
       }
-      let text = `<video crossorigin="anonymous" controls controlslist preload="metadata" ${poster}>${sources}${tracks}\n</video>`;
+      let text = `<video crossorigin="anonymous" controls ${controlslist} preload="metadata" ${poster}>${sources}${tracks}\n</video>`;
       this.toolbarEvent.addText(text);
 
       this.send("closeModal");
