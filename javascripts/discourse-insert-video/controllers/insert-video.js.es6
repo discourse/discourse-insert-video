@@ -1,15 +1,38 @@
 import Controller from "@ember/controller";
 import ModalFunctionality from "discourse/mixins/modal-functionality";
-import discourseComputed from "discourse-common/utils/decorators";
+import {
+  default as discourseComputed,
+  on
+} from "discourse-common/utils/decorators";
 import { isEmpty } from "@ember/utils";
 import { isVideo } from "discourse/lib/uploads";
 
 export default Controller.extend(ModalFunctionality, {
+  keyDown(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  },
+
   onShow() {
     this.setProperties({
       sources: null,
       tracks: null,
       validationMessage: null
+    });
+
+    Ember.run.schedule("afterRender", () => {
+      // prevent submitting on enter while adding items to lists using Enter
+      const els = document.querySelector(".video-subtitles");
+      document
+        .querySelector(".video-sources")
+        .addEventListener("keydown", e => this.keyDown(e));
+
+      document
+        .querySelector(".video-subtitles")
+        .addEventListener("keydown", e => this.keyDown(e));
     });
   },
 

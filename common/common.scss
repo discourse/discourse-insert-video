@@ -32,3 +32,48 @@
 .video-insert-error {
   color: $danger;
 }
+
+// Simple-list styling
+@mixin value-btn {
+  width: 29px;
+  border: 1px solid $primary-low;
+  outline: none;
+  padding: 0;
+
+  &:focus {
+    border-color: $tertiary;
+  }
+}
+
+.simple-list-input {
+  display: flex;
+  .add-value-btn {
+    @include value-btn;
+    margin-left: 0.5em;
+  }
+
+  label.btn {
+    width: 29px;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 38px;
+    margin-left: 0.5em;
+    line-height: 1.1;
+    margin-top: 2px;
+    text-align: center;
+    .d-icon {
+      margin-right: 0;
+    }
+  }
+
+  input {
+    margin: 0;
+    box-sizing: border-box;
+    flex: 1 0 0px;
+  }
+
+  + .select-kit {
+    display: none;
+  }
+}

@@ -1,0 +1,47 @@
+{{#if collection}}
+  <div class='values'>
+    {{#each collection as |value index|}}
+      <div class='value' data-index={{index}}>
+        {{d-button
+          action=(action "removeValue")
+          actionParam=value
+          icon="times"
+          class="remove-value-btn btn-small"
+        }}
+
+        {{input
+          title=value
+          value=value
+          class="value-input"
+          focus-out=(action "changeValue" index)
+        }}
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
+
+<div class="simple-list-input">
+  {{text-field value=newValue
+               placeholderKey=placeholderKey
+               class="add-value-input"
+               autocomplete="discourse"
+               autocorrect="off"
+               autocapitalize="off"}}
+
+  {{#if newValue}}
+    {{d-button
+      action=(action "addValue")
+      actionParam=newValue
+      icon="plus"
+      class="add-value-btn btn-small"
+    }}
+  {{else}}
+    {{#if hasVideoUploader}}
+      {{video-uploader refresh=(action "addUploadUrl")}}
+    {{/if}}
+
+    {{#if hasVTTUploader}}
+      {{vtt-uploader refresh=(action "addUploadUrl")}}
+    {{/if}}
+  {{/if}}
+</div>
