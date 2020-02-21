@@ -73,7 +73,14 @@
     flex: 1 0 0px;
   }
 
-  + .select-kit {
-    display: none;
+  .simple-list-uploader {
+    display: flex;
+    .loading-container {
+      margin-left: 0.5em;
+      transform: scale(0.75);
+      .spinner {
+        margin: 0;
+      }
+    }
   }
 }

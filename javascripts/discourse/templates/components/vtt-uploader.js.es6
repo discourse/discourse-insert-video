@@ -5,7 +5,7 @@ import UploadMixin from "discourse/mixins/upload";
 export default Component.extend(UploadMixin, {
   type: "vtt",
   addDisabled: alias("uploading"),
-  elementId: "vtt-uploader",
+  classNameBindings: [":simple-list-uploader"],
 
   uploadDone({ url }) {
     this.refresh(url);

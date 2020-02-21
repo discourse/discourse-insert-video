@@ -5,7 +5,7 @@ import UploadMixin from "discourse/mixins/upload";
 export default Component.extend(UploadMixin, {
   type: "mp4",
   addDisabled: alias("uploading"),
-  elementId: "video-uploader",
+  classNameBindings: [":simple-list-uploader"],
 
   uploadDone({ url }) {
     this.refresh(url);
