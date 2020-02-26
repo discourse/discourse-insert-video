@@ -1,0 +1,9 @@
+{{input name="poster-image" value=poster input=(action "updatePoster") }}
+
+<div class="simple-list-uploader">
+  <label class="btn {{if addDisabled 'disabled'}}">
+    {{d-icon "upload"}}
+    <input class="hidden-upload-field" type="file" disabled={{addDisabled}} accept="image/*">
+  </label>
+  {{conditional-loading-spinner condition=addDisabled}}
+</div>

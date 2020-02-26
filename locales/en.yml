@@ -1,12 +1,12 @@
 en:
   modal:
     title: Insert Video
-    video_title: Add video source URL(s)
+    video_title: Add video sources
+    poster: Poster image (optional)
     vtt_title: Subtitles (optional)
     vtt_help: "Comma-delimited, in the format: url,label,langcode"
     insert: Insert
     cancel: Cancel
-    poster: Poster image URL (optional)
   source_not_video: "Error: One of the video source URLs is invalid."
   composer_title: Insert Video
   simple_list_placeholder: Add item...

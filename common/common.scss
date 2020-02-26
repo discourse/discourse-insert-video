@@ -1,5 +1,6 @@
 .insert-video-inputs {
   margin-bottom: 1em;
+  padding-top: 1em;
 
   .desc {
     font-size: $font-down-1;
@@ -10,16 +11,10 @@
 
   + .insert-video-inputs {
     border-top: 1px solid $primary-low;
-    padding-top: 2em;
   }
 
   .value-list {
     max-width: 500px;
-  }
-
-  input {
-    width: 100%;
-    margin-top: 1em;
   }
 }
 
@@ -45,7 +40,8 @@
   }
 }
 
-.simple-list-input {
+.simple-list-input,
+.poster-uploader {
   display: flex;
   .add-value-btn {
     @include value-btn;
@@ -57,10 +53,10 @@
     display: block;
     padding-left: 0px;
     padding-right: 0px;
-    min-height: 38px;
+    min-height: 30px;
     margin-left: 0.5em;
     line-height: 1.1;
-    margin-top: 2px;
+    margin-top: 0px;
     text-align: center;
     .d-icon {
       margin-right: 0;

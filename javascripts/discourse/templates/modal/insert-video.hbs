@@ -1,20 +1,28 @@
 {{#d-modal-body title=(theme-prefix "modal.title") class="insert-video"}}
-  <label>
-    {{theme-i18n "modal.video_title"}}
-  </label>
   <div class="insert-video-inputs video-sources">
+    <label>
+      {{theme-i18n "modal.video_title"}}
+    </label>
+
     {{simple-list
       values=sources
       hasVideoUploader=true
     }}
+  </div>
 
-    {{input name="poster-image" value=poster placeholder=(theme-i18n "modal.poster")}}
+  <div class="insert-video-inputs video-poster">
+    <label>
+      {{theme-i18n "modal.poster"}}
+    </label>
+
+    {{poster-uploader setPoster=(action "setPoster")}}
   </div>
 
   <div class="insert-video-inputs video-subtitles">
     <label>
       {{theme-i18n "modal.vtt_title"}}
     </label>
+
     {{simple-list
       values=tracks
       hasVTTUploader=true

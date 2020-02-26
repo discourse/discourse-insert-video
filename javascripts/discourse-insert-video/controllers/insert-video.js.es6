@@ -20,7 +20,8 @@ export default Controller.extend(ModalFunctionality, {
     this.setProperties({
       sources: null,
       tracks: null,
-      validationMessage: null
+      validationMessage: null,
+      poster: null
     });
 
     Ember.run.schedule("afterRender", () => {
@@ -74,7 +75,6 @@ export default Controller.extend(ModalFunctionality, {
       const data = this.prepData();
       let sources = "",
         tracks = "";
-
       const poster = this.poster ? `poster="${this.poster}"` : "";
 
       data.sources.forEach(src => {
@@ -106,6 +106,9 @@ export default Controller.extend(ModalFunctionality, {
     },
     cancel() {
       this.send("closeModal");
+    },
+    setPoster(val) {
+      this.set("poster", val);
     }
   }
 });
