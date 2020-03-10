@@ -70,9 +70,7 @@
   }
 
   .simple-list-uploader {
-    // display: flex;
-    // temporarily disabled
-    display: none;
+    display: flex;
     .loading-container {
       margin-left: 0.5em;
       transform: scale(0.75);
@@ -82,4 +80,3 @@
     }
   }
 }
-
