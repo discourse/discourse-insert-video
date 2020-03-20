@@ -30,7 +30,7 @@ export default {
 
       api.decorateCooked(processVideos, {
         onlyStream: true,
-        id: "discourse-insert-video"
+        id: "discourse-insert-video-tracks"
       });
 
       function processVideos($elem, helper) {
@@ -41,21 +41,16 @@ export default {
         }
 
         v.forEach(video => {
-          console.log(video);
           const tracks = video.querySelectorAll("track");
           tracks.forEach(track => {
             const src = track.getAttribute("src");
-            console.log(src);
 
             var xhr = new XMLHttpRequest();
             xhr.open("GET", src, true);
             xhr.responseType = "arraybuffer";
             xhr.addEventListener("load", function() {
               if (xhr.status === 200) {
-                console.log(xhr.response); // ArrayBuffer
-                console.log(new Blob([xhr.response])); // Blob
                 const url = URL.createObjectURL(new Blob([xhr.response]));
-                console.log(url);
                 track.setAttribute("src", url);
               }
             });
