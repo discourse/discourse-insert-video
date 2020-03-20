@@ -21,7 +21,8 @@ export default Controller.extend(ModalFunctionality, {
       sources: null,
       tracks: null,
       validationMessage: null,
-      poster: null
+      poster: null,
+      includeCrossOrigin: false
     });
 
     Ember.run.schedule("afterRender", () => {
@@ -74,7 +75,8 @@ export default Controller.extend(ModalFunctionality, {
     insert() {
       const data = this.prepData();
       let sources = "",
-        tracks = "";
+        tracks = "",
+        crossorigin = "";
       const poster = this.poster ? `poster="${this.poster}"` : "";
 
       data.sources.forEach(src => {
@@ -99,7 +101,11 @@ export default Controller.extend(ModalFunctionality, {
           tracks += `\n  <track src="${url}" label="${label}" kind="subtitles" srclang="${langcode}" ${def}/>`;
         });
       }
-      let text = `<video controls ${controlslist} preload="metadata" ${poster}>${sources}${tracks}\n</video>`;
+
+      if (this.includeCrossOrigin) {
+        crossorigin = 'crossorigin="anonymous"';
+      }
+      let text = `<video ${crossorigin} controls ${controlslist} preload="metadata" ${poster}>${sources}${tracks}\n</video>`;
       this.toolbarEvent.addText(text);
 
       this.send("closeModal");
