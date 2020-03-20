@@ -11,16 +11,18 @@ export default Component.extend(UploadMixin, {
   classNameBindings: [":simple-list-uploader"],
 
   uploadDone(upload) {
-    lookupUncachedUploadUrls([upload.short_url], ajax).then(res => {
-      if (res[0].short_path) {
-        this.refresh(res[0].short_path);
-      } else {
-        popupAjaxError({
-          responseJSON: {
-            error: "ERROR: Could not generate short_path for this upload"
-          }
-        });
-      }
-    });
+    console.log(upload);
+    this.refresh(upload.url);
+    // lookupUncachedUploadUrls([upload.short_url], ajax).then(res => {
+    //   if (res[0].short_path) {
+    //     this.refresh(res[0].short_path);
+    //   } else {
+    //     popupAjaxError({
+    //       responseJSON: {
+    //         error: "ERROR: Could not generate short_path for this upload"
+    //       }
+    //     });
+    //   }
+    // });
   }
 });
