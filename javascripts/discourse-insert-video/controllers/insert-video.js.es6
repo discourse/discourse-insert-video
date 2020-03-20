@@ -99,7 +99,7 @@ export default Controller.extend(ModalFunctionality, {
           tracks += `\n  <track src="${url}" label="${label}" kind="subtitles" srclang="${langcode}" ${def}/>`;
         });
       }
-      let text = `<video crossorigin="anonymous" controls ${controlslist} preload="metadata" ${poster}>${sources}${tracks}\n</video>`;
+      let text = `<video controls ${controlslist} preload="metadata" ${poster}>${sources}${tracks}\n</video>`;
       this.toolbarEvent.addText(text);
 
       this.send("closeModal");
