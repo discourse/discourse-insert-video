@@ -30,13 +30,6 @@
     <div class="desc">{{theme-i18n "modal.vtt_help"}}</div>
   </div>
 
-  <div class="insert-video-inputs crossorigin">
-    <label>
-      {{input type="checkbox" checked=includeCrossOrigin}}
-      {{theme-i18n 'modal.include_crossorigin'}}
-    </label>
-  </div>
-
   {{#if insertDisabled}}
     <div class="video-insert-error">
       {{validationMessage}}
