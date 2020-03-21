@@ -51,7 +51,7 @@ export default {
             xhr.addEventListener("load", function() {
               if (xhr.status === 200) {
                 const url = URL.createObjectURL(new Blob([xhr.response]));
-                track.setAttribute("src", url);
+                track.src = url;
               }
             });
             xhr.send();
