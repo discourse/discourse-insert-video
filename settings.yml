@@ -6,3 +6,6 @@ only_available_to_staff:
   default: false
 disable_download:
   default: false
+text_tracks_as_blobs:
+  default: true
+  description: "When using subtitles, download VTT files and inject as blob (fixes issues when using S3 storage or a CDN)"

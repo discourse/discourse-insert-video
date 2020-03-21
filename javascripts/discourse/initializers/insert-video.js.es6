@@ -1,11 +1,6 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import showModal from "discourse/lib/show-modal";
 
-function playTriggered(el) {
-  console.log("play triggered");
-  console.log(el);
-}
-
 export default {
   name: "insert-video",
 
@@ -28,10 +23,12 @@ export default {
         });
       });
 
-      api.decorateCooked(processVideos, {
-        onlyStream: true,
-        id: "discourse-insert-video-tracks"
-      });
+      if (settings.text_tracks_as_blobs) {
+        api.decorateCooked(processVideos, {
+          onlyStream: true,
+          id: "discourse-insert-video-tracks"
+        });
+      }
 
       function processVideos($elem, helper) {
         let v = $elem[0].querySelectorAll("video");
