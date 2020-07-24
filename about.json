@@ -4,5 +4,9 @@
   "license_url": null,
   "component": true,
   "assets": {},
-  "color_schemes": {}
+  "color_schemes": {},
+  "modifiers": {
+    "svg_icons": ["video"]
+  }
+
 }
