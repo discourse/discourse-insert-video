@@ -1,5 +1,6 @@
 import discourseComputed from "discourse-common/utils/decorators";
 import { makeArray } from "discourse-common/lib/helpers";
+import { action } from "@ember/object";
 import { empty, reads } from "@ember/object/computed";
 import Component from "@ember/component";
 import { on } from "discourse-common/utils/decorators";
@@ -30,25 +31,28 @@ export default Component.extend({
     }
   },
 
-  actions: {
-    changeValue(index, newValue) {
-      this._replaceValue(index, newValue);
-    },
+  @action
+  changeValue(index, newValue) {
+    this._replaceValue(index, newValue);
+  },
 
-    addValue(newValue) {
-      if (this.inputInvalid) return;
+  @action
+  addValue(newValue) {
+    if (this.inputInvalid) return;
 
-      this.set("newValue", null);
-      this._addValue(newValue);
-    },
+    this.set("newValue", null);
+    this._addValue(newValue);
+  },
 
-    removeValue(value) {
-      this._removeValue(value);
-    },
-    addUploadUrl(value) {
-      this.set("newValue", null);
-      this._addValue(value);
-    }
+  @action
+  removeValue(value) {
+    this._removeValue(value);
+  },
+
+  @action
+  addUploadUrl(value) {
+    this.set("newValue", null);
+    this._addValue(value);
   },
 
   _addValue(value) {
