@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { alias } from "@ember/object/computed";
 import Component from "@ember/component";
 import UploadMixin from "discourse/mixins/upload";
@@ -10,9 +11,9 @@ export default Component.extend(UploadMixin, {
     this.set("poster", url);
     this.setPoster(url);
   },
-  actions: {
-    updatePoster(poster) {
-      this.setPoster(poster);
-    }
+
+  @action
+  updatePoster(poster) {
+    this.setPoster(poster);
   }
 });
