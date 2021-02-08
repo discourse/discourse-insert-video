@@ -49,7 +49,7 @@ export default Controller.extend(ModalFunctionality, {
     if (sources) {
       const srcArray = sources.split("|");
 
-      if (!srcArray.every(isVideo)) {
+      if (!srcArray.every((url) => { return isVideo(url) || url.endsWith(".m3u8") })) {
         this.set("validationMessage", I18n.t(themePrefix("source_not_video")));
         return false;
       }
