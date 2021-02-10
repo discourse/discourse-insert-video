@@ -20,19 +20,19 @@ export default Controller.extend(ModalFunctionality, {
       sources: null,
       tracks: null,
       validationMessage: null,
-      poster: null
+      poster: null,
     });
 
     run.schedule("afterRender", () => {
       // prevent submitting on enter while adding items to lists using Enter
       const els = document.querySelector(".video-subtitles");
       document
-      .querySelector(".video-sources")
-      .addEventListener("keydown", e => this.keyDown(e));
+        .querySelector(".video-sources")
+        .addEventListener("keydown", (e) => this.keyDown(e));
 
       document
-      .querySelector(".video-subtitles")
-      .addEventListener("keydown", e => this.keyDown(e));
+        .querySelector(".video-subtitles")
+        .addEventListener("keydown", (e) => this.keyDown(e));
     });
   },
 
@@ -49,7 +49,11 @@ export default Controller.extend(ModalFunctionality, {
     if (sources) {
       const srcArray = sources.split("|");
 
-      if (!srcArray.every((url) => { return isVideo(url) || url.endsWith(".m3u8") })) {
+      if (
+        !srcArray.every((url) => {
+          return isVideo(url) || url.endsWith(".m3u8");
+        })
+      ) {
         this.set("validationMessage", I18n.t(themePrefix("source_not_video")));
         return false;
       }
@@ -66,34 +70,38 @@ export default Controller.extend(ModalFunctionality, {
   },
 
   sourceType(src) {
-    return src.substring(src.lastIndexOf(".") + 1);
+    let prefix, type;
+    if (src.endsWith(".m3u8")) {
+      prefix = "application";
+      type = "x-mpegURL";
+    } else {
+      prefix = "video";
+      type = src.substring(src.lastIndexOf(".") + 1);
+    }
+    return `${prefix}/${type}`;
   },
 
   @action
   insert() {
     const data = this.prepData();
     let sources = "",
-    tracks = "";
+      tracks = "";
     const poster = this.poster ? `poster="${this.poster}"` : "";
 
-    data.sources.forEach(src => {
-      sources += `\n  <source src="${src}" type="video/${this.sourceType(
-        src
-      )}" />`;
+    data.sources.forEach((src) => {
+      sources += `\n  <source src="${src}" type="${this.sourceType(src)}" />`;
     });
 
     const controlslist =
-      settings && settings.disable_download
-    ? `controlslist="nodownload" `
-    : "";
+      settings && settings.disable_download ? `controlslist="nodownload" ` : "";
 
     if (data.tracks) {
       data.tracks.forEach((t, i) => {
         const track = t.split(","),
-        url = track[0],
-        label = track[1] || "English",
-        langcode = track[2] || "en",
-        def = i === 0 ? "default " : "";
+          url = track[0],
+          label = track[1] || "English",
+          langcode = track[2] || "en",
+          def = i === 0 ? "default " : "";
 
         tracks += `\n  <track src="${url}" label="${label}" kind="subtitles" srclang="${langcode}" ${def}/>`;
       });
@@ -112,5 +120,5 @@ export default Controller.extend(ModalFunctionality, {
   @action
   setPoster(val) {
     this.set("poster", val);
-  }
+  },
 });
