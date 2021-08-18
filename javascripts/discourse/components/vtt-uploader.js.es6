@@ -9,5 +9,5 @@ export default Component.extend(UploadMixin, {
 
   uploadDone({ url }) {
     this.refresh(url);
-  }
+  },
 });

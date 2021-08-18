@@ -1,5 +1,3 @@
-import discourseComputed from "discourse-common/utils/decorators";
-import { makeArray } from "discourse-common/lib/helpers";
 import { action } from "@ember/object";
 import { empty, reads } from "@ember/object/computed";
 import Component from "@ember/component";
@@ -38,7 +36,9 @@ export default Component.extend({
 
   @action
   addValue(newValue) {
-    if (this.inputInvalid) return;
+    if (this.inputInvalid) {
+      return;
+    }
 
     this.set("newValue", null);
     this._addValue(newValue);
@@ -76,9 +76,9 @@ export default Component.extend({
 
   _splitValues(values, delimiter) {
     if (values && values.length) {
-      return values.split(delimiter).filter(x => x);
+      return values.split(delimiter).filter((x) => x);
     } else {
       return [];
     }
-  }
+  },
 });
