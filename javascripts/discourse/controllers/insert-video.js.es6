@@ -2,9 +2,9 @@ import Controller from "@ember/controller";
 import ModalFunctionality from "discourse/mixins/modal-functionality";
 import discourseComputed from "discourse-common/utils/decorators";
 import { action } from "@ember/object";
-import { isEmpty } from "@ember/utils";
 import { isVideo } from "discourse/lib/uploads";
 import { run } from "@ember/runloop";
+import I18n from "I18n";
 
 export default Controller.extend(ModalFunctionality, {
   keyDown(e) {
@@ -25,7 +25,6 @@ export default Controller.extend(ModalFunctionality, {
 
     run.schedule("afterRender", () => {
       // prevent submitting on enter while adding items to lists using Enter
-      const els = document.querySelector(".video-subtitles");
       document
         .querySelector(".video-sources")
         .addEventListener("keydown", (e) => this.keyDown(e));
@@ -36,8 +35,8 @@ export default Controller.extend(ModalFunctionality, {
     });
   },
 
-  @discourseComputed("sources", "tracks")
-  insertDisabled(sources, tracks) {
+  @discourseComputed
+  insertDisabled() {
     let data = this.prepData();
     return !data.sources;
   },

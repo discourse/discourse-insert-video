@@ -5,8 +5,8 @@ export default {
   name: "insert-video",
 
   initialize() {
-    withPluginApi("0.8.31", api => {
-      api.onToolbarCreate(toolbar => {
+    withPluginApi("0.8.31", (api) => {
+      api.onToolbarCreate((toolbar) => {
         let currentUser = api.getCurrentUser();
 
         if (settings.only_available_to_staff && !currentUser.staff) {
@@ -18,34 +18,34 @@ export default {
           id: "insertVideo",
           group: "insertions",
           icon: "video",
-          perform: e =>
-            showModal("insert-video").setProperties({ toolbarEvent: e })
+          perform: (e) =>
+            showModal("insert-video").setProperties({ toolbarEvent: e }),
         });
       });
 
       if (settings.text_tracks_as_blobs) {
         api.decorateCooked(processVideos, {
           onlyStream: true,
-          id: "discourse-insert-video-tracks"
+          id: "discourse-insert-video-tracks",
         });
       }
 
-      function processVideos($elem, helper) {
+      function processVideos($elem) {
         let v = $elem[0].querySelectorAll("video");
 
         if (v.length === 0) {
           return;
         }
 
-        v.forEach(video => {
+        v.forEach((video) => {
           const tracks = video.querySelectorAll("track");
-          tracks.forEach(track => {
+          tracks.forEach((track) => {
             const src = track.getAttribute("src");
 
-            var xhr = new XMLHttpRequest();
+            let xhr = new XMLHttpRequest();
             xhr.open("GET", src, true);
             xhr.responseType = "arraybuffer";
-            xhr.addEventListener("load", function() {
+            xhr.addEventListener("load", function () {
               if (xhr.status === 200) {
                 const url = URL.createObjectURL(new Blob([xhr.response]));
                 track.src = url;
@@ -56,5 +56,5 @@ export default {
         });
       }
     });
-  }
+  },
 };
