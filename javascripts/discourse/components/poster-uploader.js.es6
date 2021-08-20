@@ -13,7 +13,7 @@ export default Component.extend(UploadMixin, {
   },
 
   @action
-  updatePoster(poster) {
-    this.setPoster(poster);
+  updatePoster() {
+    this.setPoster(this.poster);
   },
 });
