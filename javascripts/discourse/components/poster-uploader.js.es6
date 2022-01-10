@@ -1,9 +1,9 @@
 import { action } from "@ember/object";
 import { alias } from "@ember/object/computed";
 import Component from "@ember/component";
-import UploadMixin from "discourse/mixins/upload";
+import UppyUploadMixin from "discourse/mixins/uppy-upload";
 
-export default Component.extend(UploadMixin, {
+export default Component.extend(UppyUploadMixin, {
   type: "image",
   addDisabled: alias("uploading"),
   classNameBindings: [":poster-uploader"],
