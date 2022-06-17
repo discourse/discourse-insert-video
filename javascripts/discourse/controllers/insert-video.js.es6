@@ -4,7 +4,7 @@ import discourseComputed from "discourse-common/utils/decorators";
 import { action } from "@ember/object";
 import { empty } from "@ember/object/computed";
 import { isVideo } from "discourse/lib/uploads";
-import { run } from "@ember/runloop";
+import { schedule } from "@ember/runloop";
 import I18n from "I18n";
 
 export default Controller.extend(ModalFunctionality, {
@@ -29,7 +29,7 @@ export default Controller.extend(ModalFunctionality, {
       poster: null,
     });
 
-    run.schedule("afterRender", () => {
+    schedule("afterRender", () => {
       // prevent submitting on enter while adding items to lists using Enter
       document
         .querySelector(".video-sources")
