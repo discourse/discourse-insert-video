@@ -21,12 +21,14 @@
 {{/if}}
 
 <div class="simple-list-input">
-  {{text-field value=newValue
-               placeholderKey=placeholderKey
-               class="add-value-input"
-               autocomplete="discourse"
-               autocorrect="off"
-               autocapitalize="off"}}
+  {{text-field
+    value=newValue
+    placeholderKey=placeholderKey
+    class="add-value-input"
+    autocomplete="discourse"
+    autocorrect="off"
+    autocapitalize="off"
+  }}
 
   {{#if newValue}}
     {{d-button
