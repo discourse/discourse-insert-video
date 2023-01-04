@@ -4,10 +4,7 @@
       {{theme-i18n "modal.video_title"}}
     </label>
 
-    {{custom-simple-list
-      values=sources
-      hasVideoUploader=true
-    }}
+    {{custom-simple-list values=sources hasVideoUploader=true}}
   </div>
 
   <div class="insert-video-inputs video-poster">
@@ -23,10 +20,7 @@
       {{theme-i18n "modal.vtt_title"}}
     </label>
 
-    {{custom-simple-list
-      values=tracks
-      hasVTTUploader=true
-    }}
+    {{custom-simple-list values=tracks hasVTTUploader=true}}
     <div class="desc">{{theme-i18n "modal.vtt_help"}}</div>
   </div>
 
@@ -38,6 +32,15 @@
 {{/d-modal-body}}
 
 <div class="modal-footer">
-  {{d-button class="btn-primary" disabled=insertDisabled label=(theme-prefix "modal.insert") action=(action "insert")}}
-  {{d-button class="btn-danger" label=(theme-prefix "modal.cancel") action=(action "cancel")}}
+  {{d-button
+    class="btn-primary"
+    disabled=insertDisabled
+    label=(theme-prefix "modal.insert")
+    action=(action "insert")
+  }}
+  {{d-button
+    class="btn-danger"
+    label=(theme-prefix "modal.cancel")
+    action=(action "cancel")
+  }}
 </div>
