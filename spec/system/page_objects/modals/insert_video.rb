@@ -18,10 +18,6 @@ module PageObjects
       def click_add_subtitle_button
         find(".video-subtitles .simple-list-uploader .btn").click
       end
-
-      def click_primary_button
-        find(".modal-footer .btn-primary").click
-      end
     end
   end
 end

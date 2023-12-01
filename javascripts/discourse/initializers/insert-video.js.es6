@@ -1,5 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
-import showModal from "discourse/lib/show-modal";
+import InsertVideoModal from "../components/modal/insert-video";
 
 export default {
   name: "insert-video",
@@ -18,8 +18,11 @@ export default {
           id: "insertVideo",
           group: "insertions",
           icon: "video",
-          perform: (e) =>
-            showModal("insert-video").setProperties({ toolbarEvent: e }),
+          perform: (e) => {
+            api.container.lookup("service:modal").show(InsertVideoModal, {
+              model: { toolbarEvent: e },
+            });
+          },
         });
       });
 
