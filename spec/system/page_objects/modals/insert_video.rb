@@ -18,6 +18,10 @@ module PageObjects
       def click_add_subtitle_button
         find(".video-subtitles .simple-list-uploader .btn").click
       end
+
+      def click_insert_video_button
+        footer.find('[data-test-id="insert-video-button"]').click
+      end
     end
   end
 end

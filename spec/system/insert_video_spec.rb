@@ -34,7 +34,7 @@ RSpec.describe "Inserting Video from Composer", system: true do
     attach_file(video_file) { insert_video_modal.click_add_video_source_button }
     attach_file(poster_file) { insert_video_modal.click_add_poster_button }
     attach_file(subtitle_file) { insert_video_modal.click_add_subtitle_button }
-    insert_video_modal.click_primary_button
+    insert_video_modal.click_insert_video_button
 
     video_preview = composer.preview.find("video[controls][poster]")
     expect(video_preview).to be_visible
