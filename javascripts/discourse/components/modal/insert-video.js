@@ -10,6 +10,7 @@ export default class InsertVideoModal extends Component {
   @tracked sources;
   @tracked tracks;
   @tracked poster;
+  @empty("sources") insertDisabled;
 
   _keyDown(e) {
     if (e.keyCode === 13) {
@@ -46,10 +47,6 @@ export default class InsertVideoModal extends Component {
     return this.sources.split("|");
   }
 
-  get insertDisabled() {
-    return empty(this.sourceList);
-  }
-
   get validationMessage() {
     const allVideos = this.sourceList.every(
       (url) => isVideo(url) || url.endsWith(".m3u8")
@@ -58,22 +55,16 @@ export default class InsertVideoModal extends Component {
     return allVideos ? "" : I18n.t(themePrefix("source_not_video"));
   }
 
-  get sourceType() {
+  _sourceType(src) {
     let prefix, type;
-    if (this.src.endsWith(".m3u8")) {
+    if (src.endsWith(".m3u8")) {
       prefix = "application";
       type = "x-mpegURL";
     } else {
       prefix = "video";
-      type = this.src.substring(this.src.lastIndexOf(".") + 1);
+      type = src.substring(src.lastIndexOf(".") + 1);
     }
     return `${prefix}/${type}`;
-  }
-
-  get callback() {
-    return () => {
-      // this.sources.add(src);
-    };
   }
 
   @action
@@ -82,7 +73,7 @@ export default class InsertVideoModal extends Component {
     let tracks = "";
 
     this.sourceList.forEach((src) => {
-      sources += `\n  <source src="${src}" type="${this.sourceType(src)}" />`;
+      sources += `\n  <source src="${src}" type="${this._sourceType(src)}" />`;
     });
 
     const controlslist = settings?.disable_download

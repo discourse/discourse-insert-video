@@ -8,14 +8,16 @@
       <label>
         {{theme-i18n "modal.video_title"}}
       </label>
-      <CustomSimpleList @values={{this.sources}} @hasVideoUploader={{true}} />
+
+      {{custom-simple-list values=sources hasVideoUploader=true}}
     </div>
-    <!--NEED TO FIX THIS, CAUSES DEPRECATION WARNING FOR PASSING INPUT ARGS-->
+
     <div class="insert-video-inputs video-poster">
       <label>
         {{theme-i18n "modal.poster"}}
       </label>
-      <PosterUploader @setPoster={{this.setPoster}} />
+
+      {{poster-uploader setPoster=this.setPoster}}
     </div>
 
     <div class="insert-video-inputs video-subtitles">
@@ -23,13 +25,13 @@
         {{theme-i18n "modal.vtt_title"}}
       </label>
 
-      <CustomSimpleList @values={{this.tracks}} @hasVTTUploader={{true}} />
+      {{custom-simple-list values=tracks hasVTTUploader=true}}
       <div class="desc">{{theme-i18n "modal.vtt_help"}}</div>
     </div>
 
     {{#if this.insertDisabled}}
       <div class="video-insert-error">
-        {{validationMessage}}
+        {{this.validationMessage}}
       </div>
     {{/if}}
   </:body>
