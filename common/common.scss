@@ -18,10 +18,8 @@
   }
 }
 
-.modal-inner-container {
-  .insert-video-inputs .select-kit {
-    width: 450px;
-  }
+.d-modal.insert-video-modal .d-modal__container {
+  width: 100%;
 }
 
 .video-insert-error {
