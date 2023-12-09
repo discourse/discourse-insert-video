@@ -3,7 +3,6 @@ import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { empty } from "@ember/object/computed";
 import { isVideo } from "discourse/lib/uploads";
-import { afterRender } from "discourse-common/utils/decorators";
 import I18n from "I18n";
 
 export default class InsertVideoModal extends Component {
@@ -19,16 +18,16 @@ export default class InsertVideoModal extends Component {
       return false;
     }
   }
-  @afterRender
-  _preventSubmit() {
+  @action
+  async preventSubmitOnEnter(modal) {
     // prevent submitting on enter while adding items to lists using Enter
-    document
+    modal
       .querySelector(".video-sources")
-      .addEventListener("keydown", (e) => this._keyDown(e));
+      .addEventListener("keydown", this._keyDown);
 
-    document
+    modal
       .querySelector(".video-subtitles")
-      .addEventListener("keydown", (e) => this._keyDown(e));
+      .addEventListener("keydown", this._keyDown);
   }
 
   get trackList() {

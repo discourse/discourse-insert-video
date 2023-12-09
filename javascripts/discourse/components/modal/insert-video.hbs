@@ -1,8 +1,8 @@
 <DModal
   @closeModal={{@closeModal}}
-  @bodyClass="insert-video"
   @title={{theme-i18n "modal.title"}}
   class="insert-video-modal"
+  {{did-insert this.preventSubmitOnEnter}}
 >
   <:body>
     <div class="insert-video-inputs video-sources">
@@ -10,7 +10,7 @@
         {{theme-i18n "modal.video_title"}}
       </label>
 
-      {{custom-simple-list values=sources hasVideoUploader=true}}
+      <CustomSimpleList @values={{this.sources}} @hasVideoUploader={{true}} />
     </div>
 
     <div class="insert-video-inputs video-poster">
@@ -18,7 +18,7 @@
         {{theme-i18n "modal.poster"}}
       </label>
 
-      {{poster-uploader setPoster=this.setPoster}}
+      <PosterUploader @setPoster={{this.setPoster}} />
     </div>
 
     <div class="insert-video-inputs video-subtitles">
@@ -26,7 +26,7 @@
         {{theme-i18n "modal.vtt_title"}}
       </label>
 
-      {{custom-simple-list values=tracks hasVTTUploader=true}}
+      <CustomSimpleList @values={{this.tracks}} @hasVTTUploader={{true}} />
       <div class="desc">{{theme-i18n "modal.vtt_help"}}</div>
     </div>
 
