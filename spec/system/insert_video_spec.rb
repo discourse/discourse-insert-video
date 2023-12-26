@@ -5,10 +5,14 @@ require_relative "page_objects/modals/insert_video"
 RSpec.describe "Inserting Video from Composer", system: true do
   fab!(:theme) { upload_theme_component }
   fab!(:user)
-  before { sign_in(user) }
   let(:composer) { PageObjects::Components::Composer.new }
   let(:topic) { PageObjects::Pages::Topic.new }
   let(:insert_video_modal) { PageObjects::Modals::InsertVideo.new }
+
+  before do
+    Group.refresh_automatic_groups!
+    sign_in(user)
+  end
 
   it "should upload video" do
     SiteSetting.authorized_extensions += "|mp4|vtt"
