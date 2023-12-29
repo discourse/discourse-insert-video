@@ -29,15 +29,20 @@ RSpec.describe "Inserting Video from Composer", system: true do
     composer.click_toolbar_button("insertVideo")
     expect(insert_video_modal).to be_open
 
-    # the relative order of the poster-related setup and assertion here should not
-    # be changed; it relies on the other input fields getting found by the Capybara
+    # the relative order of the upload setup and assertions here should not
+    # be changed:
+    # 1. consecutively running 2 `attach_file` calls with custom-simple-list uploaders can
+    # result in both files uploaded into a single value-list instead of two separate
+    # value-lists: this happened when uploading the video_file first and then the
+    # subtitle_file without assertions
+    # 2. poster input assertion relies on the other input fields getting found by the Capybara
     # finder methods first before we assert against the poster input's value
     # (its actual text attribute is never updated in its current implementation)
+    attach_file(subtitle_file) { insert_video_modal.click_add_subtitle_button }
+    expect(insert_video_modal.subtitle_input_field[:title]).to include "vtt"
     attach_file(poster_file) { insert_video_modal.click_add_poster_button }
     attach_file(video_file) { insert_video_modal.click_add_video_source_button }
-    attach_file(subtitle_file) { insert_video_modal.click_add_subtitle_button }
     expect(insert_video_modal.video_source_input_field[:title]).to include "mp4"
-    expect(insert_video_modal.subtitle_input_field[:title]).to include "vtt"
     expect(insert_video_modal.poster_input_field.value).to include ".jpeg"
     insert_video_modal.click_insert_video_button
 
