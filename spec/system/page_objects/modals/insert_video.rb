@@ -6,6 +6,17 @@ module PageObjects
   module Modals
     class InsertVideo < PageObjects::Modals::Base
       MODAL_SELECTOR = ".insert-video-modal"
+      def video_source_input_field
+        find(".video-sources .value-input")
+      end
+
+      def poster_input_field
+        find(".video-poster .ember-text-field")
+      end
+
+      def subtitle_input_field
+        find(".video-subtitles .value-input")
+      end
       def click_add_video_source_button
         find(".video-sources .simple-list-uploader .btn").click
       end
