@@ -1,4 +1,9 @@
-{{input name="poster-image" value=poster input=(action "updatePoster")}}
+<input
+  type="text"
+  name="poster-image"
+  value={{poster}}
+  {{on "input" this.updatePoster}}
+/>
 
 <div class="simple-list-uploader">
   <label class="btn {{if addDisabled 'disabled'}}">

@@ -9,12 +9,13 @@
           class="remove-value-btn btn-small"
         }}
 
-        {{input
-          title=value
-          value=value
+        <input
+          type="text"
+          title={{value}}
+          value={{value}}
           class="value-input"
-          focus-out=(action "changeValue" index)
-        }}
+          {{on "focusout" (fn this.changeValue index)}}
+        />
       </div>
     {{/each}}
   </div>

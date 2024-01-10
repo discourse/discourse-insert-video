@@ -11,7 +11,7 @@ module PageObjects
       end
 
       def poster_input_field
-        find(".video-poster .ember-text-field")
+        find(".video-poster input[type='text']")
       end
 
       def subtitle_input_field

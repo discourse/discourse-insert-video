@@ -30,7 +30,8 @@ export default Component.extend({
   },
 
   @action
-  changeValue(index, newValue) {
+  changeValue(index, event) {
+    const newValue = event.target.value;
     this._replaceValue(index, newValue);
   },
 

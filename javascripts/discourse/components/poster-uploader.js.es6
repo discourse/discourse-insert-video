@@ -13,7 +13,8 @@ export default Component.extend(UppyUploadMixin, {
   },
 
   @action
-  updatePoster() {
+  updatePoster(event) {
+    this.set("poster", event.target.value);
     this.setPoster(this.poster);
   },
 });
