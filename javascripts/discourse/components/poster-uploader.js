@@ -1,6 +1,6 @@
+import Component from "@ember/component";
 import { action } from "@ember/object";
 import { alias } from "@ember/object/computed";
-import Component from "@ember/component";
 import UppyUploadMixin from "discourse/mixins/uppy-upload";
 
 export default Component.extend(UppyUploadMixin, {
