@@ -1,6 +1,6 @@
+import Component from "@ember/component";
 import { action } from "@ember/object";
 import { empty, reads } from "@ember/object/computed";
-import Component from "@ember/component";
 import { on } from "discourse-common/utils/decorators";
 
 export default Component.extend({
