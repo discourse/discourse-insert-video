@@ -1,7 +1,7 @@
 {
-  "name": "Discourse Insert Video",
-  "about_url": null,
-  "license_url": null,
+  "name": "Insert Video",
+  "about_url": "https://meta.discourse.org/t/insert-video/147651",
+  "license_url": "https://github.com/discourse/discourse-insert-video/blob/main/LICENSE",
   "component": true,
   "assets": {},
   "color_schemes": {},
