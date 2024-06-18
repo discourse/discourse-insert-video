@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 de:
+  modal:
+    title: Video einfügen
+    video_title: Videoquellen hinzufügen
+    poster: Vorschaubild (optional)
+    vtt_title: Untertitel (optional)
+    vtt_help: "Durch Kommas getrennt, im Format: URL,Bezeichnung,Sprachcode"
+    insert: Einfügen
+    cancel: Abbrechen
+  source_not_video: "Fehler: Eine der Videoquellen-URLs ist ungültig."
+  composer_title: Video einfügen
+  simple_list_placeholder: Element hinzufügen …
