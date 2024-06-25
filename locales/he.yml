@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 he:
+  modal:
+    title: הוספת סרטון
+    video_title: הוספת מקורות סרטונים
+    poster: תמונת כרזה (רשות)
+    vtt_title: כתוביות (רשות)
+    vtt_help: "מופרד בפסיקים, בתבנית: כתובת,תווית,קוד־שפה"
+    insert: הוספה
+    cancel: ביטול
+  source_not_video: "שגיאה: אחת מכתובות מקורות הסרטונים שגויה."
+  composer_title: הוספת סרטון
+  simple_list_placeholder: הוספת פריט…
