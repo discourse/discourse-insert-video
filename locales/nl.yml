@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 nl:
+  modal:
+    title: Video invoegen
+    video_title: Videobronnen toevoegen
+    poster: Posterafbeelding (optioneel)
+    vtt_title: Ondertitels (optioneel)
+    vtt_help: "Door komma's gescheiden, in de vorm: url,label,taalcode"
+    insert: Invoegen
+    cancel: Annuleren
+  source_not_video: "Fout: een van de videobron-URL's is ongeldig."
+  composer_title: Video invoegen
+  simple_list_placeholder: Item toevoegen...

@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 zh_CN:
+  modal:
+    title: 插入视频
+    video_title: 添加视频源
+    poster: 海报图片（可选）
+    vtt_title: 副标题（可选）
+    vtt_help: "逗号分隔，格式为：url,label,langcode"
+    insert: 插入
+    cancel: 取消
+  source_not_video: "错误：其中一个视频源 URL 无效。"
+  composer_title: 插入视频
+  simple_list_placeholder: 添加条目…

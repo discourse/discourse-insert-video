@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 fr:
+  modal:
+    title: Insérer une vidéo
+    video_title: Ajouter des sources vidéo
+    poster: Image de l'auteur (facultatif)
+    vtt_title: Sous-titres (facultatif)
+    vtt_help: "Délimité par des virgules, au format : url,label,langcode"
+    insert: Insérer
+    cancel: Annuler
+  source_not_video: "Erreur : l'une des URL de la source vidéo n'est pas valide."
+  composer_title: Insérer une vidéo
+  simple_list_placeholder: Ajouter un élément…

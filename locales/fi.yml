@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 fi:
+  modal:
+    title: Lisää video
+    video_title: Lisää videolähteitä
+    poster: Julistekuva (valinnainen)
+    vtt_title: Tekstitys (valinnainen)
+    vtt_help: "Pilkuilla eroteltu muodossa: url,tunniste,kielikoodi"
+    insert: Lisää
+    cancel: Peruuta
+  source_not_video: "Virhe: yksi videolähteen URL-osoitteista on virheellinen."
+  composer_title: Lisää video
+  simple_list_placeholder: Lisää kohde...

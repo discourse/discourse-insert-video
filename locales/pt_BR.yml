@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 pt_BR:
+  modal:
+    title: Inserir vídeo
+    video_title: Adicionar origens de vídeo
+    poster: Imagem do(a) publicador(a)
+    vtt_title: Legendas (opcional)
+    vtt_help: "Separado por vírgula, no formato: url,label,langcode"
+    insert: Inserir
+    cancel: Cancelar
+  source_not_video: "Erro: uma das URLs de origem de vídeo é inválida."
+  composer_title: Inserir vídeo
+  simple_list_placeholder: Adicionar item...
