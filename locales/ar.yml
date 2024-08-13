@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 ar:
+  modal:
+    title: إدراج فيديو
+    video_title: إضافة مصادر فيديو
+    poster: صورة الملصق (اختيارية)
+    vtt_title: ترجمة الشاشة (اختيارية)
+    vtt_help: "مفصولة بفاصلة، بالتنسيق: url،label،langcode"
+    insert: إدراج
+    cancel: إلغاء
+  source_not_video: "خطأ: أحد عناوين URL لمصدر الفيديو غير صالح."
+  composer_title: إدراج فيديو
+  simple_list_placeholder: إضافة عنصر...

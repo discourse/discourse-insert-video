@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 it:
+  modal:
+    title: Inserisci video
+    video_title: Aggiungi origini video
+    poster: Immagine poster (facoltativa)
+    vtt_title: Sottotitoli (facoltativi)
+    vtt_help: "Delimitato da virgole, nel formato: url,etichetta,codiceLingua"
+    insert: Inserisci
+    cancel: Annulla
+  source_not_video: "Errore: uno degli URL di origine video non è valido."
+  composer_title: Inserisci video
+  simple_list_placeholder: Aggiungi elemento...

@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 es:
+  modal:
+    title: Insertar vídeo
+    video_title: Añadir fuentes de vídeo
+    poster: Imagen del póster (opcional)
+    vtt_title: Subtítulos (opcional)
+    vtt_help: "Delimitado por comas, en el formato: URL, etiqueta, código de idioma"
+    insert: Insertar
+    cancel: Cancelar
+  source_not_video: "Error: una de las URL de origen del vídeo no es válida."
+  composer_title: Insertar vídeo
+  simple_list_placeholder: Añadir elemento...

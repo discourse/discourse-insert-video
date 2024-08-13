@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 ja:
+  modal:
+    title: 動画の挿入
+    video_title: 動画ソースの追加
+    poster: ポスター画像 (オプション)
+    vtt_title: サブタイトル (オプション)
+    vtt_help: "カンマ区切り、フォーマット: url,label,langcode"
+    insert: 挿入
+    cancel: キャンセル
+  source_not_video: "エラー: 動画ソース URL の 1 つが無効です。"
+  composer_title: 動画の挿入
+  simple_list_placeholder: 項目を追加...

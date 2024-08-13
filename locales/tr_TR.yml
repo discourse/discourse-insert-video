@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 tr_TR:
+  modal:
+    title: Video ekle
+    video_title: Video kaynakları ekle
+    poster: Poster görüntüsü (isteğe bağlı)
+    vtt_title: Alt yazılar (isteğe bağlı)
+    vtt_help: "Virgülle ayrılmış, şu biçimde: url,label,langcode"
+    insert: Ekle
+    cancel: İptal et
+  source_not_video: "Hata: Video kaynak URL'lerinden biri geçersiz."
+  composer_title: Video ekle
+  simple_list_placeholder: Öge ekle...
