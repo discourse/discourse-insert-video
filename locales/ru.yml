@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 ru:
+  modal:
+    title: Вставка видео
+    video_title: Добавляет источники видео
+    poster: Изображение постера (необязательно)
+    vtt_title: Субтитры (необязательно)
+    vtt_help: "С разделителями-запятыми в формате: URL,метка,код языка"
+    insert: Вставить
+    cancel: Отменить
+  source_not_video: "Ошибка: один из URL-адресов источника видео недействителен."
+  composer_title: Вставка видео
+  simple_list_placeholder: Добавить элемент…
