@@ -2,10 +2,13 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { empty } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
 import { isVideo } from "discourse/lib/uploads";
 import I18n from "I18n";
 
 export default class InsertVideoModal extends Component {
+  @service appEvents;
+
   @tracked sources;
   @tracked tracks;
   @tracked poster;
