@@ -17,17 +17,11 @@ RSpec.describe "Inserting Video from Composer", system: true do
   it "should upload video" do
     SiteSetting.authorized_extensions += "|mp4|vtt"
     video_file =
-      File.absolute_path(
-        Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.mp4")
-      )
+      File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.mp4"))
     poster_file =
-      File.absolute_path(
-        Pathname.new("#{__FILE__}/../../fixtures/images/poster_small.jpg")
-      )
+      File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/images/poster_small.jpg"))
     subtitle_file =
-      File.absolute_path(
-        Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.vtt")
-      )
+      File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.vtt"))
 
     visit "/new-topic"
     expect(composer).to be_opened
