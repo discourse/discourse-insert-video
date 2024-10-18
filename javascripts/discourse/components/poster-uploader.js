@@ -7,6 +7,7 @@ export default Component.extend(UppyUploadMixin, {
   type: "image",
   addDisabled: alias("uploading"),
   classNameBindings: [":poster-uploader"],
+  id: "poster-uploader",
   uploadDone({ url }) {
     this.set("poster", url);
     this.setPoster(url);
