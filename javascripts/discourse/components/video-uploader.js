@@ -6,6 +6,7 @@ export default Component.extend(UppyUploadMixin, {
   type: "mp4",
   addDisabled: alias("uploading"),
   classNameBindings: [":simple-list-uploader"],
+  id: "video-uploader",
 
   uploadDone({ url }) {
     this.refresh(url);
