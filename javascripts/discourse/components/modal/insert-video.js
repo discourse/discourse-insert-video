@@ -21,6 +21,7 @@ export default class InsertVideoModal extends Component {
       return false;
     }
   }
+
   @action
   async preventSubmitOnEnter(modal) {
     // prevent submitting on enter while adding items to lists using Enter
