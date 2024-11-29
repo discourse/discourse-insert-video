@@ -13,7 +13,7 @@ export default class CustomSimpleList extends Component {
   collection = null;
   values = null;
 
-  get placeholderKey() {
+  get resolvedPlaceholderKey() {
     return this.placeholderKey || themePrefix("simple_list_placeholder");
   }
 
