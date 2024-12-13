@@ -22,14 +22,16 @@
 {{/if}}
 
 <div class="simple-list-input">
-  {{text-field
-    value=this.newValue
+  <input
+  type="text"
+    value={{this.newValue}}
     placeholderKey=this.resolvedPlaceholderKey
     class="add-value-input"
     autocomplete="discourse"
     autocorrect="off"
     autocapitalize="off"
-  }}
+    {{on "input" this.newValueChanged}}
+  />
 
   {{#if this.newValue}}
     {{d-button
