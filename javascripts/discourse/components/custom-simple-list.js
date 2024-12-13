@@ -59,11 +59,6 @@ export default class CustomSimpleList extends Component {
     this._addValue(value);
   }
 
-  @action
-  newValueChanged(event) {
-    this.set("newValue", event.target.value);
-  }
-
   _addValue(value) {
     this.collection.addObject(value);
     this._saveValues();

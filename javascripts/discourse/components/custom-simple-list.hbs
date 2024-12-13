@@ -30,7 +30,7 @@
     autocomplete="discourse"
     autocorrect="off"
     autocapitalize="off"
-    {{on "input" this.newValueChanged}}
+    {{on "input" (with-event-value (fn (mut this.newValue)))}}
   />
 
   {{#if this.newValue}}
