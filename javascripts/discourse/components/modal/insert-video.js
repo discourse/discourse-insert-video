@@ -4,7 +4,7 @@ import { action } from "@ember/object";
 import { empty } from "@ember/object/computed";
 import { service } from "@ember/service";
 import { isVideo } from "discourse/lib/uploads";
-import I18n from "I18n";
+import { i18n } from "discourse-i18n";
 
 export default class InsertVideoModal extends Component {
   @service appEvents;
@@ -55,7 +55,7 @@ export default class InsertVideoModal extends Component {
       (url) => isVideo(url) || url.endsWith(".m3u8")
     );
 
-    return allVideos ? "" : I18n.t(themePrefix("source_not_video"));
+    return allVideos ? "" : i18n(themePrefix("source_not_video"));
   }
 
   _sourceType(src) {

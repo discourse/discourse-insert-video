@@ -2,8 +2,8 @@ import Component from "@glimmer/component";
 import { getOwner } from "@ember/owner";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import ConditionalLoadingSpinner from "discourse/components/conditional-loading-spinner";
+import icon from "discourse/helpers/d-icon";
 import UppyUpload from "discourse/lib/uppy/uppy-upload";
-import icon from "discourse-common/helpers/d-icon";
 
 export default class VideoUploader extends Component {
   uppyUpload = new UppyUpload(getOwner(this), {
