@@ -2,7 +2,7 @@ import Component from "@ember/component";
 import { action } from "@ember/object";
 import { empty } from "@ember/object/computed";
 import { classNameBindings } from "@ember-decorators/component";
-import { on } from "discourse-common/utils/decorators";
+import { on } from "discourse/lib/decorators";
 
 @classNameBindings(":value-list")
 export default class CustomSimpleList extends Component {
