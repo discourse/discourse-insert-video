@@ -49,7 +49,7 @@ RSpec.describe "Inserting Video from Composer", system: true do
 
     video_preview = composer.preview.find("video[controls][poster]")
     expect(video_preview).to be_visible
-    expect(video_preview).to have_css('source[type="video/mp4"', visible: false)
-    expect(video_preview).to have_css('track[kind="subtitles"', visible: false)
+    expect(video_preview).to have_css('source[type="video/mp4"]', visible: false)
+    expect(video_preview).to have_css('track[kind="subtitles"]', visible: false)
   end
 end
