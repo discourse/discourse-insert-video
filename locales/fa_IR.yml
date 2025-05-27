@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 fa_IR:
+  modal:
+    title: درج ویدیو
+    video_title: افزودن منابع ویدیویی
+    poster: تصویر پوستر (اختیاری)
+    vtt_title: زیرنویس (اختیاری)
+    vtt_help: "با جداکننده‌ی ویرگول، به فرمت: نشانی اینترنتی،برچسب،کدزبان"
+    insert: درج کردن
+    cancel: انصراف
+  source_not_video: "خطا: یکی از نشانی‌های اینترنتی منبع ویدیویی نامعتبر است."
+  composer_title: درج ویدیو
+  simple_list_placeholder: افزودن مورد...
