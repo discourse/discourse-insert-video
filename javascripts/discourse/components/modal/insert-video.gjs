@@ -6,7 +6,6 @@ import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import { service } from "@ember/service";
 import DButton from "discourse/components/d-button";
 import DModal from "discourse/components/d-modal";
-import themePrefix from "discourse/helpers/theme-prefix";
 import { isVideo } from "discourse/lib/uploads";
 import { i18n } from "discourse-i18n";
 import CustomSimpleList from "../custom-simple-list";
