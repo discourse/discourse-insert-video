@@ -2,9 +2,14 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { empty } from "@ember/object/computed";
+import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import { service } from "@ember/service";
+import DButton from "discourse/components/d-button";
+import DModal from "discourse/components/d-modal";
 import { isVideo } from "discourse/lib/uploads";
 import { i18n } from "discourse-i18n";
+import CustomSimpleList from "../custom-simple-list";
+import PosterUploader from "../poster-uploader";
 
 export default class InsertVideoModal extends Component {
   @service appEvents;
@@ -104,4 +109,63 @@ export default class InsertVideoModal extends Component {
   setPoster(val) {
     this.poster = val;
   }
+
+  <template>
+    <DModal
+      @closeModal={{@closeModal}}
+      @title={{i18n (themePrefix "modal.title")}}
+      class="insert-video-modal"
+      {{didInsert this.preventSubmitOnEnter}}
+    >
+      <:body>
+        <div class="insert-video-inputs video-sources">
+          <label>
+            {{i18n (themePrefix "modal.video_title")}}
+          </label>
+
+          <CustomSimpleList
+            @values={{this.sources}}
+            @hasVideoUploader={{true}}
+          />
+        </div>
+
+        <div class="insert-video-inputs video-poster">
+          <label>
+            {{i18n (themePrefix "modal.poster")}}
+          </label>
+
+          <PosterUploader @setPoster={{this.setPoster}} />
+        </div>
+
+        <div class="insert-video-inputs video-subtitles">
+          <label>
+            {{i18n (themePrefix "modal.vtt_title")}}
+          </label>
+
+          <CustomSimpleList @values={{this.tracks}} @hasVTTUploader={{true}} />
+          <div class="desc">{{i18n (themePrefix "modal.vtt_help")}}</div>
+        </div>
+
+        {{#if this.insertDisabled}}
+          <div class="video-insert-error">
+            {{this.validationMessage}}
+          </div>
+        {{/if}}
+      </:body>
+      <:footer>
+        <DButton
+          class="btn-primary"
+          data-test-id="insert-video-button"
+          @disabled={{this.insertDisabled}}
+          @label={{themePrefix "modal.insert"}}
+          @action={{this.insertVideo}}
+        />
+        <DButton
+          class="btn-danger"
+          @label={{themePrefix "modal.cancel"}}
+          @action={{@closeModal}}
+        />
+      </:footer>
+    </DModal>
+  </template>
 }
