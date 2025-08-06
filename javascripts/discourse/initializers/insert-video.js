@@ -38,9 +38,11 @@ export default {
       });
 
       function processOverlay(post) {
-        post.querySelectorAll("video").forEach((video) => {
-          video.addEventListener("contextmenu", (e) => e.preventDefault());
-        });
+        if (settings.disable_download) {
+          post.querySelectorAll("video").forEach((video) => {
+            video.addEventListener("contextmenu", (e) => e.preventDefault());
+          });
+        }
       }
 
       function processVideos($elem) {

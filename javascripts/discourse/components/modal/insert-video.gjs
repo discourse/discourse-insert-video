@@ -101,11 +101,6 @@ export default class InsertVideoModal extends Component {
     const poster = this.poster ? ` poster="${this.poster}"` : "";
     let text = `<video controls ${controlslist} preload="metadata"${poster}>${sources}${tracks}\n</video>`;
 
-    if (settings?.disable_download) {
-      //Added here since it only gets added when copy pasting the video into the composer
-      text = `<div class="video-container">${text}</div>`;
-    }
-
     this.args.model.toolbarEvent.addText(text);
     this.appEvents.trigger("discourse-insert-video:video-inserted", text);
     this.args.closeModal();
