@@ -3,7 +3,6 @@ import InsertVideoModal from "../components/modal/insert-video";
 
 export default {
   name: "insert-video",
-
   initialize() {
     withPluginApi("0.8.31", (api) => {
       api.onToolbarCreate((toolbar) => {
@@ -30,6 +29,33 @@ export default {
         api.decorateCooked(processVideos, {
           onlyStream: true,
           id: "discourse-insert-video-tracks",
+        });
+      }
+
+      api.decorateCookedElement(processOverlay, {
+        onlyStream: false,
+        id: "custom-video-overlay-element",
+      });
+
+      function processOverlay(post) {
+        post.querySelectorAll(".video-container").forEach((wrapper) => {
+          const video = wrapper.querySelector("video");
+
+          if (!video) return;
+
+          video.addEventListener("contextmenu", (e) => e.preventDefault());
+
+          const overlay = document.createElement("div");
+          overlay.className = "insert-video-overlay";
+
+          overlay.addEventListener("click", () => {
+            if (video.paused) {
+              video.play();
+              overlay.style.display = "none";
+            }
+          });
+
+          wrapper.appendChild(overlay);
         });
       }
 
