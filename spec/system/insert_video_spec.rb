@@ -38,13 +38,11 @@ RSpec.describe "Inserting Video from Composer", system: true do
       insert_video_modal.click_insert_video_button
       composer.submit
 
-      video_container = find(".video-container")
-      expect(page).to have_css(".video-container")
-      expect(video_container).to have_css(".insert-video-overlay")
+      expect(page).to have_css("video")
 
       test_right_click_script = <<~JS
         window.__contextMenuPrevented = false;
-        const video = document.querySelector(".video-container video");
+        const video = document.querySelector("video");
 
         video.addEventListener("contextmenu", function (e) {
           

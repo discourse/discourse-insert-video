@@ -38,24 +38,8 @@ export default {
       });
 
       function processOverlay(post) {
-        post.querySelectorAll(".video-container").forEach((wrapper) => {
-          const video = wrapper.querySelector("video");
-
-          if (!video) return;
-
+        post.querySelectorAll("video").forEach((video) => {
           video.addEventListener("contextmenu", (e) => e.preventDefault());
-
-          const overlay = document.createElement("div");
-          overlay.className = "insert-video-overlay";
-
-          overlay.addEventListener("click", () => {
-            if (video.paused) {
-              video.play();
-              overlay.style.display = "none";
-            }
-          });
-
-          wrapper.appendChild(overlay);
         });
       }
 
