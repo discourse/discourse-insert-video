@@ -100,6 +100,7 @@ export default class InsertVideoModal extends Component {
 
     const poster = this.poster ? ` poster="${this.poster}"` : "";
     const text = `<video controls ${controlslist} preload="metadata"${poster}>${sources}${tracks}\n</video>`;
+
     this.args.model.toolbarEvent.addText(text);
     this.appEvents.trigger("discourse-insert-video:video-inserted", text);
     this.args.closeModal();

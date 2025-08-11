@@ -8,21 +8,62 @@ RSpec.describe "Inserting Video from Composer", system: true do
   let(:composer) { PageObjects::Components::Composer.new }
   let(:topic) { PageObjects::Pages::Topic.new }
   let(:insert_video_modal) { PageObjects::Modals::InsertVideo.new }
+  let!(:video_file) do
+    File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.mp4"))
+  end
+  let!(:poster_file) do
+    File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/images/poster_small.jpg"))
+  end
+  let!(:subtitle_file) do
+    File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.vtt"))
+  end
 
   before do
     Group.refresh_automatic_groups!
+    SiteSetting.authorized_extensions += "|mp4|vtt"
     sign_in(user)
   end
 
-  it "should upload video" do
-    SiteSetting.authorized_extensions += "|mp4|vtt"
-    video_file =
-      File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.mp4"))
-    poster_file =
-      File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/images/poster_small.jpg"))
-    subtitle_file =
-      File.absolute_path(Pathname.new("#{__FILE__}/../../fixtures/media/sample_video.vtt"))
+  context "when downloads are disabled" do
+    before do
+      theme.update_setting(:disable_download, true)
+      theme.save!
+    end
+    it "should prevent the user from downloading the video" do
+      visit "/new-topic"
+      expect(composer).to be_opened
+      topic.fill_in_composer_title("Video upload test")
+      composer.click_toolbar_button("insertVideo")
+      attach_file(video_file) { insert_video_modal.click_add_video_source_button }
+      insert_video_modal.click_insert_video_button
+      composer.submit
 
+      expect(page).to have_css("video")
+
+      test_right_click_script = <<~JS
+        window.__contextMenuPrevented = false;
+        const video = document.querySelector("video");
+
+        video.addEventListener("contextmenu", function (e) {
+          
+          window.__contextMenuPrevented = e.defaultPrevented;
+        });
+
+        const evt = new MouseEvent("contextmenu", {
+          bubbles: true,
+          cancelable: true,
+          view: window
+        });
+
+        video.dispatchEvent(evt);
+      JS
+
+      page.execute_script(test_right_click_script)
+
+      expect(page.evaluate_script("window.__contextMenuPrevented")).to eq(true)
+    end
+  end
+  it "should upload video" do
     visit "/new-topic"
     expect(composer).to be_opened
     topic.fill_in_composer_title("Video upload test")

@@ -3,8 +3,10 @@ default_track_label:
 default_track_langcode:
   default: "en"
 only_available_to_staff:
+  type: bool
   default: false
 disable_download:
+  type: bool
   default: false
 text_tracks_as_blobs:
   default: true
