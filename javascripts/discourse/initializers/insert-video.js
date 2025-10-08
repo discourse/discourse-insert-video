@@ -4,7 +4,7 @@ import InsertVideoModal from "../components/modal/insert-video";
 export default {
   name: "insert-video",
   initialize() {
-    withPluginApi("0.8.31", (api) => {
+    withPluginApi((api) => {
       api.onToolbarCreate((toolbar) => {
         let currentUser = api.getCurrentUser();
 
