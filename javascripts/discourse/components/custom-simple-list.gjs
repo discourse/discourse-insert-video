@@ -6,6 +6,11 @@ import { empty } from "@ember/object/computed";
 import { classNameBindings } from "@ember-decorators/component";
 import DButton from "discourse/components/d-button";
 import withEventValue from "discourse/helpers/with-event-value";
+import {
+  addUniqueValueToArray,
+  removeValueFromArray,
+} from "discourse/lib/array-tools";
+import { trackedArray } from "discourse/lib/tracked-tools";
 import { i18n } from "discourse-i18n";
 import VideoUploader from "./video-uploader";
 import VttUploader from "./vtt-uploader";
@@ -16,7 +21,7 @@ export default class CustomSimpleList extends Component {
 
   inputDelimiter = null;
   newValue = "";
-  collection = null;
+  @trackedArray collection = null;
   values = null;
 
   didReceiveAttrs() {
@@ -56,7 +61,7 @@ export default class CustomSimpleList extends Component {
 
   @action
   removeValue(value) {
-    this.collection.removeObject(value);
+    removeValueFromArray(this.collection, value);
     this._saveValues();
   }
 
@@ -67,7 +72,7 @@ export default class CustomSimpleList extends Component {
   }
 
   _addValue(value) {
-    this.collection.addObject(value);
+    addUniqueValueToArray(this.collection, value);
     this._saveValues();
   }
 
