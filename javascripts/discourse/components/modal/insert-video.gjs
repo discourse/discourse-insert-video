@@ -14,7 +14,10 @@ import PosterUploader from "../poster-uploader";
 export default class InsertVideoModal extends Component {
   @service appEvents;
 
+  // both are set by `CustomSimpleList`
+  // eslint-disable-next-line discourse/no-unnecessary-tracked
   @tracked sources;
+  // eslint-disable-next-line discourse/no-unnecessary-tracked
   @tracked tracks;
   @tracked poster;
   @empty("sources") insertDisabled;
