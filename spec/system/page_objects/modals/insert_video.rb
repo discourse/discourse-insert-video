@@ -30,7 +30,10 @@ module PageObjects
       end
 
       def click_insert_video_button
-        footer.find('[data-test-id="insert-video-button"]').click
+        # NOTE: `data-test-*` attributes are stripped from minified theme builds
+        # (which is what system specs run against), so we cannot rely on them
+        # here. The insert button is the only `.btn-primary` in the footer.
+        footer.find(".btn-primary").click
       end
     end
   end
