@@ -159,7 +159,6 @@ export default class InsertVideoModal extends Component {
       <:footer>
         <DButton
           class="btn-primary"
-          data-test-id="insert-video-button"
           @disabled={{this.insertDisabled}}
           @label={{themePrefix "modal.insert"}}
           @action={{this.insertVideo}}
