@@ -46,7 +46,7 @@ export default class CustomSimpleList extends Component {
   @action
   changeValue(index, event) {
     const newValue = event.target.value;
-    this.collection.replace(index, 1, [newValue]);
+    this.collection.splice(index, 1, newValue);
     this._saveValues();
   }
 
