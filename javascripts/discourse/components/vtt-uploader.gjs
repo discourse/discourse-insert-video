@@ -1,12 +1,11 @@
 import Component from "@glimmer/component";
-import { getOwner } from "@ember/owner";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import ConditionalLoadingSpinner from "discourse/components/conditional-loading-spinner";
 import icon from "discourse/helpers/d-icon";
 import UppyUpload from "discourse/lib/uppy/uppy-upload";
 
 export default class VttUploader extends Component {
-  uppyUpload = new UppyUpload(getOwner(this), {
+  uppyUpload = new UppyUpload(this, {
     type: "vtt",
     id: "vtt-uploader",
     uploadDone: ({ url }) => {

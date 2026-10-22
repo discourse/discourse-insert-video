@@ -2,7 +2,6 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { on } from "@ember/modifier";
 import { action } from "@ember/object";
-import { getOwner } from "@ember/owner";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import ConditionalLoadingSpinner from "discourse/components/conditional-loading-spinner";
 import icon from "discourse/helpers/d-icon";
@@ -11,7 +10,7 @@ import UppyUpload from "discourse/lib/uppy/uppy-upload";
 export default class PosterUploader extends Component {
   @tracked poster;
 
-  uppyUpload = new UppyUpload(getOwner(this), {
+  uppyUpload = new UppyUpload(this, {
     type: "image",
     id: "poster-uploader",
     uploadDone: ({ url }) => {
